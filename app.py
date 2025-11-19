@@ -258,21 +258,6 @@ try:
         st.code(traceback.format_exc())
         if st.button("Try Again"):
             go_to_page('input')
-        
-        if success:
-            st.session_state.generated_application = result
-            st.session_state.metadata = metadata
-            time.sleep(1)
-            go_to_page('results')
-        else:
-            st.error(f"❌ {result}")
-            if st.button("Try Again"):
-                go_to_page('input')
-    
-    except Exception as e:
-        st.error(f"❌ Error: {str(e)}")
-        if st.button("Try Again"):
-            go_to_page('input')
 
 # ===== RESULTS PAGE =====
 def results_page():
