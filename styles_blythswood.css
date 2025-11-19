@@ -1,0 +1,368 @@
+/* Ross AI Grant Writer - Custom Styling */
+/* Inspired by Baldwin, Claude.ai, GoCompare */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main App Container */
+.stApp {
+    background: linear-gradient(135deg, #E8F4FF 0%, #FFFFFF 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Remove Streamlit Branding */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Page Container */
+.main .block-container {
+    max-width: 900px;
+    padding: 3rem 2rem;
+}
+
+/* Hero Section (Welcome Page) */
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #0066CC;
+    text-align: center;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #666;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.explanation-box {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 102, 204, 0.08);
+    border-left: 4px solid #0066CC;
+}
+
+.explanation-box h3 {
+    color: #0066CC;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.explanation-box p {
+    color: #333;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* Primary Button (Get to Work) */
+.stButton > button {
+    background: linear-gradient(135deg, #0066CC 0%, #00A3FF 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto;
+    display: block;
+}
+
+.stButton > button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 102, 204, 0.4);
+    background: linear-gradient(135deg, #0051D5 0%, #0092E6 100%);
+}
+
+/* File Uploader */
+.stFileUploader {
+    background: white;
+    border: 2px dashed #0066CC;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.stFileUploader:hover {
+    border-color: #00A3FF;
+    background: #F8FCFF;
+}
+
+/* Text Areas */
+.stTextArea textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: white;
+    transition: all 0.3s ease;
+    line-height: 1.6;
+}
+
+.stTextArea textarea:focus {
+    border-color: #0066CC;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    outline: none;
+}
+
+/* Section Headers */
+h1, h2, h3 {
+    font-family: 'Inter', sans-serif;
+    color: #1A1A1A;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+    color: #0066CC;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+/* Progress Container */
+.progress-container {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 102, 204, 0.08);
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #E8F4FF;
+    border-top: 4px solid #0066CC;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.progress-text {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 1rem 0;
+}
+
+.estimated-time {
+    font-size: 1rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Status Messages */
+.status-item {
+    background: #F8FCFF;
+    border-left: 3px solid #0066CC;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.status-item.success {
+    border-left-color: #00C853;
+    background: #F1F8F4;
+}
+
+.status-item.error {
+    border-left-color: #FF3B30;
+    background: #FFF5F5;
+}
+
+/* Document List (Past Grants) */
+.document-item {
+    background: white;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.document-item:hover {
+    border-color: #0066CC;
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.1);
+}
+
+.delete-button {
+    background: #FF3B30;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+    background: #CC0000;
+}
+
+/* Download Buttons Container */
+.download-container {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 102, 204, 0.08);
+}
+
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Secondary Buttons (Downloads, Navigation) */
+.stDownloadButton > button {
+    background: white;
+    color: #0066CC;
+    border: 2px solid #0066CC;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.stDownloadButton > button:hover {
+    background: #0066CC;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+/* Editor Box */
+.editor-container {
+    background: white;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    min-height: 400px;
+}
+
+/* Info Box */
+.info-box {
+    background: #E8F4FF;
+    border: 1px solid #0066CC;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    color: #0066CC;
+    font-size: 0.95rem;
+}
+
+/* Success Box */
+.success-box {
+    background: #F1F8F4;
+    border: 1px solid #00C853;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    color: #00C853;
+}
+
+/* Error Box */
+.error-box {
+    background: #FFF5F5;
+    border: 1px solid #FF3B30;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    color: #FF3B30;
+}
+
+/* Smooth Transitions */
+.stApp > div {
+    animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Metric Display */
+.metric-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.metric-box {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    flex: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0066CC;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* Responsive spacing */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .explanation-box {
+        padding: 1.5rem;
+    }
+}
