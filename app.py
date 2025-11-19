@@ -223,7 +223,12 @@ def loading_page():
     def update_status(message):
         status_container.markdown(f"<div class='status-message'>{message}</div>", unsafe_allow_html=True)
     
-    try:
+try:
+        # Debug logging
+        st.write("DEBUG: API Key exists:", API_KEY is not None and len(API_KEY) > 0)
+        st.write("DEBUG: Master doc size:", len(get_master_doc()) if get_master_doc() else 0)
+        st.write("DEBUG: Past grants size:", len(get_past_grants()) if get_past_grants() else 0)
+        
         success, result, metadata = generate_complete_application(
             grant_requirements=st.session_state.grant_requirements,
             master_doc=get_master_doc(),
@@ -231,6 +236,28 @@ def loading_page():
             api_key=API_KEY,
             progress_callback=update_status
         )
+        
+        st.write("DEBUG: Success:", success)
+        st.write("DEBUG: Result length:", len(result) if result else 0)
+        st.write("DEBUG: Metadata:", metadata)
+        
+        if success:
+            st.session_state.generated_application = result
+            st.session_state.metadata = metadata
+            time.sleep(1)
+            go_to_page('results')
+        else:
+            st.error(f"❌ Generation failed: {result}")
+            st.write("Full error:", result)
+            if st.button("Try Again"):
+                go_to_page('input')
+    
+    except Exception as e:
+        import traceback
+        st.error(f"❌ Exception: {str(e)}")
+        st.code(traceback.format_exc())
+        if st.button("Try Again"):
+            go_to_page('input')
         
         if success:
             st.session_state.generated_application = result
