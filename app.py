@@ -13,8 +13,12 @@ from blythswood_data import get_master_doc, get_past_grants, get_organization_na
 from url_fetcher import fetch_from_url, validate_url
 import time
 
-load_dotenv()
-API_KEY = os.getenv('ANTHROPIC_API_KEY')
+load_dotenv()  # For local development
+# Load API key from environment or Streamlit secrets
+try:
+    API_KEY = st.secrets["ANTHROPIC_API_KEY"]  # Streamlit Cloud
+except:
+    API_KEY = os.getenv('ANTHROPIC_API_KEY')  # Local .env file
 
 st.set_page_config(
     page_title=f"{APP_NAME}",
